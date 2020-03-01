@@ -1,0 +1,499 @@
+{
+  "settings": {
+    "languages": [
+      "pt"
+    ],
+    "threshold": 0.5,
+    "tag": "nlp",
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp"
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "pt"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "pt": {
+        "settings": {
+          "locale": "pt",
+          "tag": "domain-manager-pt",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "trainByDomain": false,
+          "useStemDict": true
+        },
+        "stemDict": {
+          "ola": {
+            "intent": "agent.greeting",
+            "domain": "default"
+          },
+          "olaaaaa": {
+            "intent": "agent.greeting",
+            "domain": "default"
+          },
+          "ai,e": {
+            "intent": "agent.greeting",
+            "domain": "default"
+          },
+          "oi": {
+            "intent": "agent.greeting",
+            "domain": "default"
+          },
+          "bem,com,tud,voc": {
+            "intent": "agent.howareyou",
+            "domain": "default"
+          },
+          "com,se,sent,tem,ultim,voc": {
+            "intent": "agent.howareyou",
+            "domain": "default"
+          },
+          "anda,com,voc": {
+            "intent": "agent.howareyou",
+            "domain": "default"
+          },
+          "andad,com,tem,voc": {
+            "intent": "agent.howareyou",
+            "domain": "default"
+          },
+          "com,esta,hoj,voc": {
+            "intent": "agent.howareyou",
+            "domain": "default"
+          },
+          "fal,me,sobr,voc": {
+            "intent": "agent.acquaintance",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "agent.greeting": "default",
+          "agent.howareyou": "default",
+          "agent.acquaintance": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Olá",
+            "intent": "agent.greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Olaaaaaa",
+            "intent": "agent.greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "E aí",
+            "intent": "agent.greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Oi",
+            "intent": "agent.greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tudo bem com você?",
+            "intent": "agent.howareyou"
+          },
+          {
+            "domain": "default",
+            "utterance": "Como você tem se sentido ultimamente?",
+            "intent": "agent.howareyou"
+          },
+          {
+            "domain": "default",
+            "utterance": "Como você anda?",
+            "intent": "agent.howareyou"
+          },
+          {
+            "domain": "default",
+            "utterance": "Como você tem andado?",
+            "intent": "agent.howareyou"
+          },
+          {
+            "domain": "default",
+            "utterance": "Como você está hoje?",
+            "intent": "agent.howareyou"
+          },
+          {
+            "domain": "default",
+            "utterance": "Me fale sobre você",
+            "intent": "agent.acquaintance"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "pt",
+              "tag": "nlu-pt",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "ola": 1,
+              "olaaaaa": 1,
+              "e": 1,
+              "ai": 1,
+              "oi": 1,
+              "tud": 1,
+              "bem": 1,
+              "com": 1,
+              "voc": 1,
+              "tem": 1,
+              "se": 1,
+              "sent": 1,
+              "ultim": 1,
+              "anda": 1,
+              "andad": 1,
+              "esta": 1,
+              "hoj": 1,
+              "me": 1,
+              "fal": 1,
+              "sobr": 1
+            },
+            "intents": {
+              "agent.greeting": 1,
+              "agent.howareyou": 1,
+              "agent.acquaintance": 1
+            },
+            "intentFeatures": {
+              "agent.greeting": [
+                "ola",
+                "olaaaaa",
+                "e",
+                "ai",
+                "oi"
+              ],
+              "agent.howareyou": [
+                "tud",
+                "bem",
+                "com",
+                "voc",
+                "tem",
+                "se",
+                "sent",
+                "ultim",
+                "anda",
+                "andad",
+                "esta",
+                "hoj"
+              ],
+              "agent.acquaintance": [
+                "me",
+                "fal",
+                "sobr",
+                "voc"
+              ]
+            },
+            "featuresToIntent": {
+              "ola": [
+                "agent.greeting"
+              ],
+              "olaaaaa": [
+                "agent.greeting"
+              ],
+              "e": [
+                "agent.greeting"
+              ],
+              "ai": [
+                "agent.greeting"
+              ],
+              "oi": [
+                "agent.greeting"
+              ],
+              "tud": [
+                "agent.howareyou"
+              ],
+              "bem": [
+                "agent.howareyou"
+              ],
+              "com": [
+                "agent.howareyou"
+              ],
+              "voc": [
+                "agent.howareyou",
+                "agent.acquaintance"
+              ],
+              "tem": [
+                "agent.howareyou"
+              ],
+              "se": [
+                "agent.howareyou"
+              ],
+              "sent": [
+                "agent.howareyou"
+              ],
+              "ultim": [
+                "agent.howareyou"
+              ],
+              "anda": [
+                "agent.howareyou"
+              ],
+              "andad": [
+                "agent.howareyou"
+              ],
+              "esta": [
+                "agent.howareyou"
+              ],
+              "hoj": [
+                "agent.howareyou"
+              ],
+              "me": [
+                "agent.acquaintance"
+              ],
+              "fal": [
+                "agent.acquaintance"
+              ],
+              "sobr": [
+                "agent.acquaintance"
+              ]
+            },
+            "neuralNetwork": {
+              "features": [
+                "ola",
+                "olaaaaa",
+                "e",
+                "ai",
+                "oi",
+                "tud",
+                "bem",
+                "com",
+                "voc",
+                "tem",
+                "se",
+                "sent",
+                "ultim",
+                "anda",
+                "andad",
+                "esta",
+                "hoj",
+                "me",
+                "fal",
+                "sobr",
+                "nonefeature"
+              ],
+              "intents": [
+                "agent.greeting",
+                "agent.howareyou",
+                "agent.acquaintance",
+                "None"
+              ],
+              "perceptrons": [
+                [
+                  6.169891357421875,
+                  6.184708595275879,
+                  3.1364200115203857,
+                  3.1364200115203857,
+                  6.146298408508301,
+                  -0.520140528678894,
+                  -0.520140528678894,
+                  -2.2462539672851562,
+                  -3.2458701133728027,
+                  -0.5824488401412964,
+                  -0.2936914563179016,
+                  -0.2936914563179016,
+                  -0.2936914563179016,
+                  -0.7514276504516602,
+                  -0.28875732421875,
+                  -0.39223626255989075,
+                  -0.39223626255989075,
+                  -0.9996167421340942,
+                  -0.9996167421340942,
+                  -0.9996167421340942,
+                  -5.934899806976318,
+                  6.221578959908216
+                ],
+                [
+                  -0.6189126968383789,
+                  -0.6155781745910645,
+                  -0.3621111810207367,
+                  -0.3621111810207367,
+                  -0.6123026609420776,
+                  1.0964704751968384,
+                  1.0964704751968384,
+                  5.6279296875,
+                  4.066253662109375,
+                  1.251909613609314,
+                  0.3131486773490906,
+                  0.3131486773490906,
+                  0.3131486773490906,
+                  2.1838650703430176,
+                  0.9387606978416443,
+                  1.0956850051879883,
+                  1.0956850051879883,
+                  -1.5616763830184937,
+                  -1.5616763830184937,
+                  -1.5616763830184937,
+                  -0.6256720423698425,
+                  0.6158298617560415
+                ],
+                [
+                  -0.28209593892097473,
+                  -0.2798466086387634,
+                  -0.16637255251407623,
+                  -0.16637255251407623,
+                  -0.2781621217727661,
+                  -0.3749980032444,
+                  -0.3749980032444,
+                  -1.6045563220977783,
+                  1.8516299724578857,
+                  -0.4254598319530487,
+                  -0.21921893954277039,
+                  -0.21921893954277039,
+                  -0.21921893954277039,
+                  -0.5266105532646179,
+                  -0.20624090731143951,
+                  -0.27748817205429077,
+                  -0.27748817205429077,
+                  3.456186532974243,
+                  3.456186532974243,
+                  3.456186532974243,
+                  -0.2859141230583191,
+                  0.27961752626769965
+                ],
+                [
+                  -1.6936826705932617,
+                  -1.6771987676620483,
+                  -0.8833056092262268,
+                  -0.8833056092262268,
+                  -1.6542596817016602,
+                  -0.13011234998703003,
+                  -0.13011234998703003,
+                  -0.6259525418281555,
+                  -0.9111278057098389,
+                  -0.1508278250694275,
+                  -0.06888724118471146,
+                  -0.06888724118471146,
+                  -0.06888724118471146,
+                  -0.22904212772846222,
+                  -0.08194062858819962,
+                  -0.1159699335694313,
+                  -0.1159699335694313,
+                  -0.2851756513118744,
+                  -0.2851756513118744,
+                  -0.2851756513118744,
+                  10.37771987915039,
+                  1.7890500354146694
+                ]
+              ],
+              "perceptronSettings": {
+                "locale": "pt",
+                "tag": "nlu-pt",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "pt",
+        "Olá"
+      ],
+      [
+        "pt",
+        "Olaaaaaa"
+      ],
+      [
+        "pt",
+        "E aí"
+      ],
+      [
+        "pt",
+        "Oi"
+      ],
+      [
+        "pt",
+        "Tudo bem com você?"
+      ],
+      [
+        "pt",
+        "Como você tem se sentido ultimamente?"
+      ],
+      [
+        "pt",
+        "Como você anda?"
+      ],
+      [
+        "pt",
+        "Como você tem andado?"
+      ],
+      [
+        "pt",
+        "Como você está hoje?"
+      ],
+      [
+        "pt",
+        "Me fale sobre você"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "pt": {
+        "agent.greeting": [
+          {
+            "answer": "Oi"
+          },
+          {
+            "answer": "Olá"
+          },
+          {
+            "answer": "E aí"
+          }
+        ],
+        "agent.howareyou": [
+          {
+            "answer": "Eu estou ótima e você?"
+          },
+          {
+            "answer": "Estou me sentindo muito bem. Obrigada por perguntar. E você?"
+          }
+        ],
+        "agent.acquaintance": [
+          {
+            "answer": "Bom, eu sou Stela, sua assistente pessoal. Pode contar comigo sempre que precisar (="
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
