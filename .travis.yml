@@ -10,4 +10,5 @@ branch:
 
 before_install:
   - npm install -g flightplan
+  - npm install flightplan --save-dev
   - fly master
