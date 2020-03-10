@@ -18,6 +18,10 @@ app.use(bodyParser.json());
 /**
  * REST
  */
+app.get("/", async (request, response) => {
+  response.send("Aaaaaaaa");
+});
+
 app.get("/talk", async (request, response) => {
   const message = request.body.message;
   const result = await nlp.process(message);
