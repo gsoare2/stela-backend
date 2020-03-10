@@ -1,0 +1,13 @@
+language: nodejs
+node:
+  - "10.16.0"
+install:
+  - npm install
+  - npm install -g flightplan
+sudo: required
+branch:
+  only:
+    - master
+
+before_install:
+  - fly master

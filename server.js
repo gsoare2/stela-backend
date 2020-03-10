@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.get("/talk", async (request, response) => {
   const message = request.body.message;
   const result = await nlp.process(message);
-  response.send(result);
+  response.send(result.answer);
 });
 
 app.listen(3000, async () => {
