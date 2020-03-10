@@ -3,11 +3,11 @@ node:
   - "10.16.0"
 install:
   - npm install
-  - npm install -g flightplan
 sudo: required
 branch:
   only:
     - master
 
 before_install:
+  - npm install -g flightplan
   - fly master
