@@ -1,7 +1,7 @@
 const plan = require('flightplan');
 
 plan.target('master', {
-  host: 'http://35.238.139.206',
+  host: '35.238.139.206',
   username: 'root',
   password: 'adf7823',
   agent: process.env.SSH_AUTH_SOCK
