@@ -12,12 +12,12 @@ plan.remote(function (remote) {
   remote.log('Entering on /stela/stelabackend');
   remote.sudo('cd /stela/stelabackend');
 
-  remote.log('Entering on /stela/stelabackend');
-  remote.sudo('pm2 stop server.js');
+  // remote.log('Entering on /stela/stelabackend');
+  // remote.sudo('pm2 stop server.js');
 
   remote.log('Getting the changes')
   remote.sudo('git pull')
   
   remote.log('Going up the application')
-  remote.sudo('pm2 start server.js --watch')
+  remote.sudo('pm2 start server --watch')
 });
