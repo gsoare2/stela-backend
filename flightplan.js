@@ -10,13 +10,14 @@ plan.target('master', {
 // run commands on the target's remote hosts
 plan.remote(function (remote) {
   remote.log('Entering on /stela/stelabackend');
-  remote.sudo('cd /stela/stelabackend');
+  remote.sudo('cd /stela/');
+  remote.sudo('cd /stelabackend/');
 
   // remote.log('Entering on /stela/stelabackend');
   // remote.sudo('pm2 stop server.js');
 
   remote.log('Where I am?')
-  remote.sudo('ls -la')
+  remote.sudo('pwd')
 
   remote.log('Getting the changes')
   remote.sudo('git pull')
