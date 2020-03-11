@@ -11,4 +11,4 @@ branch:
 before_install:
   - npm install --save-dev shipit-cli
   - npm install --save-dev shipit-deploy
-  - npm shipit staging deploy
+  - npx shipit staging deploy
