@@ -9,6 +9,6 @@ branch:
     - master
 
 before_install:
-  - npm install -g flightplan
-  - npm install flightplan --save-dev
-  - fly master
+  - npm install --save-dev shipit-cli
+  - npm install --save-dev shipit-deploy
+  - npm shipit staging deploy
