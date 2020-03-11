@@ -8,7 +8,7 @@ plan.target('master', {
 });
 
 // run commands on the target's remote hosts
-plan.remote(function (remote) {
+plan.local(function (remote) {
   remote.log('Entering on /stela/stelabackend');
   remote.cd('~/../stela/stelabackend')
 
