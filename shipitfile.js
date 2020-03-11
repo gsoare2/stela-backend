@@ -13,7 +13,9 @@ module.exports = shipit => {
       }
     },
     production: {
-      servers: 'root@35.238.139.206 -p adf7823',
+      servers: '35.238.139.206',
+      user: 'root',
+      password: 'adf7823'
     }
   });
 
