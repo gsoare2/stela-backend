@@ -12,4 +12,4 @@ before_install:
   - npm install --save-dev shipit-cli
   - npm install --save-dev shipit-deploy
   - npm install --save-dev shipit-shared
-  - npx shipit staging deploy
+  - npx shipit production deploy
