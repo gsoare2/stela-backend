@@ -22,7 +22,7 @@ app.get("/", async (request, response) => {
   response.send("Aaaaaaaa");
 });
 
-app.get("/talk", async (request, response) => {
+app.post("/talk", async (request, response) => {
   const message = request.body.message;
   const result = await nlp.process(message);
   response.send(result.answer);
