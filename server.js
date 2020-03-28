@@ -25,7 +25,7 @@ app.get("/", async (request, response) => {
 app.post("/talk", async (request, response) => {
   const message = request.body.message;
   const result = await nlp.process(message);
-  response.send(result.answer);
+  response.send({ message: result.answer });
 });
 
 app.listen(3000, async () => {
