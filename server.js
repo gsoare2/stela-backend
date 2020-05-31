@@ -16,6 +16,20 @@ nlp.use(LangPt);
 app.use(bodyParser.json());
 
 /**
+ * SOCKET
+ */
+io.on('connect', async (socket) => {
+  console.log('connected');
+
+  socket.on('serverListenMessage', async (message) => {
+    console.log(LangPt)
+    const result = await nlp.process(message);
+
+    // io.emit('serverSendResponse', { text: result });
+  });
+});
+
+/**
  * REST
  */
 app.get("/", async (request, response) => {
