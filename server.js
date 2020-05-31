@@ -1,9 +1,8 @@
-const express = require("express");
-const bodyParser = require("body-parser")
-
+const express = require('express')
 const app = express();
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+const bodyParser = require("body-parser");
 
 const { Nlp } = require("./src/packages/nlp/src");
 const { LangPt } = require("./src/packages/lang-pt/src");
@@ -13,22 +12,21 @@ const train = require("./src/services/train/train");
 const nlp = new Nlp({ languages: ["pt"], threshold: 0.5 });
 nlp.container.register("fs", fs);
 nlp.use(LangPt);
-app.use(bodyParser.json());
 
-/**
- * REST
- */
-app.get("/", async (request, response) => {
-  response.send("Aaaaaaaa");
+app.set('port', (5000));
+
+io.on('connect', async (socket) => {
+  console.log('connected');
+
+  socket.on('serverListenMessage', async (message) => {
+    console.log(LangPt)
+    const result = await nlp.process(message);
+
+    // io.emit('serverSendResponse', { text: result });
+  });
 });
 
-app.post("/talk", async (request, response) => {
-  const message = request.body.message;
-  const result = await nlp.process(message);
-  response.send({ message: result.answer });
-});
-
-app.listen(3000, async () => {
+http.listen(app.get('port'), async () => {
   await train(nlp);
-  console.log("Express on port 3000.")
+  console.log('Node app is running on port', app.get('port'));
 });

@@ -15,7 +15,7 @@ module.exports = async function train(manager) {
   manager.addDocument("pt", "Oi", "agent.greeting");
   /**
    * How are you?
-   */ 
+   */
   manager.addDocument("pt", "Tudo bem com você?", "agent.howareyou");
   manager.addDocument("pt", "Como você tem se sentido ultimamente?", "agent.howareyou");
   manager.addDocument("pt", "Como você anda?", "agent.howareyou");

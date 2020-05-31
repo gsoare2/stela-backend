@@ -1,18 +1,163 @@
 <html>
-	<head>
+
+<head>
 	<title></title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-	</head>
+</head>
 
-	<body>
-	
-	</body>
+<body>
+	<div class="chat">
+		<div id="messages" class="messages">
+			<div class="messages__row my__messages__row">
+				<div class="message my__message">Aaaaaaaaaa d</div>
+			</div>
+			<div class="messages__row stela__messages__row">
+				<div class="message stela__message">Aaaaaaaaaa d</div>
+			</div>
+		</div>
+		<div class="chat__bottom">
+			<input id="inputMessage" type="text">
+			<button id="sendButton" class="send__button">Send</button>
+		</div>
+	</div>
+</body>
 
-	<script>
-	const socket = io('http://localhost:8000')
+<script>
+	const socket = io('http://localhost:5000')
 
-	socket.on('connection', message => {
-		console.log("aaaaaaaaa")
-	})
-	</script>
+	const messagesContainer = document.getElementById('messages');
+	const inputMessage = document.getElementById('inputMessage');
+	const sendButton = document.getElementById('sendButton');
+
+	listenerServerSendResponse();
+	// window.addEventListener('DOMContentLoaded', listenerServerSendResponse);
+	sendButton.addEventListener('click', listenerSendMessage);
+
+	inputMessage.addEventListener('keypress', (e) => {
+		const key = e.which || e.keyCode || 0;
+
+		if (key === 13) {
+			listenerSendMessage();
+		}
+	});
+
+	function listenerSendMessage() {
+		const text = inputMessage.value;
+		if (!!text) {
+			appendMyMessage(text);
+			emitMessage(text);
+			inputMessage.value = '';
+		}
+	}
+
+	function listenerServerSendResponse() {
+		socket.on('serverSendResponse', (message) => {
+			appendStelaMessage(message.text);
+		})
+	}
+
+	function emitMessage(text) {
+		socket.emit('serverListenMessage', { text });
+	}
+
+	function appendMyMessage(text) {
+		const messageRow = document.createElement('div')
+		const message = document.createElement('div')
+		messageRow.classList.add('messages__row');
+		messageRow.classList.add('my__messages__row');
+		message.classList.add('message');
+		message.classList.add('my__message');
+		message.innerText = text;
+		messageRow.appendChild(message);
+		messagesContainer.appendChild(messageRow);
+	}
+
+	function appendStelaMessage(text) {
+		const messageRow = document.createElement('div')
+		const message = document.createElement('div')
+		messageRow.classList.add('messages__row');
+		messageRow.classList.add('stela__messages__row');
+		message.classList.add('message');
+		message.classList.add('stela__message');
+		message.innerText = text;
+		messageRow.appendChild(message);
+		messagesContainer.appendChild(messageRow);
+	}
+</script>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	.chat {
+		width: 100%;
+		height: 100vh;
+		display: grid;
+		grid-template-rows: 1fr 40px;
+	}
+
+	.messages {
+		background-color: 333333;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+
+	.messages__row {
+		width: auto;
+		display: flex;
+		flex-direction: row;
+		padding: 10px 10px;
+	}
+
+	.my__messages__row {
+		justify-content: flex-end;
+	}
+
+	.stela__messages__row {
+		justify-content: flex-start;
+	}
+
+	.message {
+		padding: 10px;
+		background-color: #fafafa;
+	}
+
+	.my__message {
+		border-radius: 6px 6px 0px 6px;
+	}
+
+	.stela__message {
+		border-radius: 6px 6px 6px 0;
+	}
+
+	.chat__bottom {
+		display: grid;
+		grid-template-columns: 1fr 70px;
+	}
+
+	.chat__bottom input {
+		border: 0;
+		font-size: 14pt;
+		padding: 0 10px;
+		outline: none;
+	}
+
+	.chat__bottom button {
+		border: 0;
+		font-size: 11pt;
+		font-weight: bold;
+		cursor: pointer;
+		background-color: #f3f3f3;
+		color: #313131;
+		outline: none;
+	}
+
+	.chat__bottom button:hover {
+		background-color: #e2e2e2;
+	}
+</style>
+
 </html>
